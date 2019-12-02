@@ -18,7 +18,7 @@ class BulkCreateManager(object):
 
     def _commit(self, model_class):
         model_key = model_class._meta.label
-        model_class.objects.bulk_create(self._create_queues[model_key])
+        model_class.objects.bulk_create(self._create_queues[model_key],ignore_conflicts=True)
         self._create_queues[model_key] = []
 
     def add(self, obj):
