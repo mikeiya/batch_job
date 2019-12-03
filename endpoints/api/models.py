@@ -11,8 +11,6 @@ class ClientId(models.Model):
         return self.client_member_id
 
 class Member(AbstractUser):
-    first_name = models.CharField(max_length=120, help_text='Enter member_id')
-    last_name = models.CharField(max_length=120, help_text='Enter member_id')
     phone_number = models.ForeignKey(Phonenumber, on_delete=models.CASCADE)
     client_member_id = models.ForeignKey(ClientId, on_delete=models.CASCADE)
     account_id = models.IntegerField()
